@@ -1,0 +1,8 @@
+# console for basedate
+# I'm working on this program
+
+## I am creating a console to work with bd much faster in the console, while the console will support MySQL, maybe I will support this program and add posrtgreSql, etc. But for now, I'm working on a simple console with a bd connection.
+## the file that stores the data for bd is located at resources/config/database.properties
+
+## Я создаю консоль, чтобы работать с bd намного быстрее в консоли, при этом консоль будет поддерживать MySQL, возможно, я буду поддерживать эту программу и добавлю posrtgreSql и т.д. Но пока я работаю над простой консолью с подключением к bd.
+## файл, в котором хранятся данные для bd, находится по адресу resources/config/database.properties
