@@ -34,6 +34,7 @@ public class Main {
                 start_console();
             }
         } catch (Exception e) {
+            set_data_for_bd("old_url", "old_user", "old_pass"); // old_url and etc is mean save old config for bd
             System.err.println("Connection FAILED");
             System.err.println("ERROR: " + e);
         }
@@ -57,8 +58,10 @@ public class Main {
                             try (Connection conn = get_connection()) {
                                 System.out.println("Connection to DB successfully");
                                 start_console();
+                                isRun = false;
                             }
                         } catch (Exception e) {
+                            set_data_for_bd("old_url", "old_user", "old_pass");
                             System.err.println("Connection FAILED");
                             System.err.println("ERROR: " + e);
                         }
