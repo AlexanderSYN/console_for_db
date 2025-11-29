@@ -2,9 +2,9 @@ package console;
 
 import java.util.Scanner;
 
-public class main_code_console {
+public class core_console {
 
-    private static Scanner in = new Scanner(System.in);
+    private final static Scanner in = new Scanner(System.in);
 
     protected static boolean isRun = true;
     protected static String input_from_console;
@@ -29,8 +29,6 @@ public class main_code_console {
                 isRun = false;
             }
 
-
         }
     }
-
 }
