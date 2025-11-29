@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.util.Scanner;
 
 import static DB.util.*;
-import static console.main_code_console.*;
+import static console.core_console.*;
 
 public class Main {
     public static Scanner in = new Scanner(System.in);
@@ -31,6 +31,7 @@ public class Main {
         try {
             try (Connection conn = get_connection()) {
                 System.out.println("Connection to DB successfully");
+                isRun = false;
                 start_console();
             }
         } catch (Exception e) {
