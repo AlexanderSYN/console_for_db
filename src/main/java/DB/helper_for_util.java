@@ -15,6 +15,9 @@ public class helper_for_util {
         load_properties();
     }
 
+    /**
+     * to avoid writing props.load() and unnecessary things every time
+     **/
     private static void load_properties() {
         if (propertiesLoaded) return;
 
@@ -53,18 +56,9 @@ public class helper_for_util {
     protected static String get_password() { return PROOPS.getProperty("PASSWORD"); }
     protected static void set_password(String password) { PROOPS.setProperty("PASSWORD", password); }
 
-    private static String get_config_file_path() {
-        // If the file is in classpath (for example, in JAR), you need to save it
-        // to an external file
-        String classpathPath = helper_for_util.class.getClassLoader()
-                .getResource(CONFIG_PATH).getPath();
-
-        return "src/main/resources/config/database.properties"; // save in current dir
-    }
-
     protected static void save_config() throws IOException {
         try {
-            String file_path = get_config_file_path();
+            String file_path = "src/main/resources/config/database.properties";
             try (OutputStream output = new FileOutputStream(file_path)) {
                 PROOPS.store(output, "Updated database configuration");
             }

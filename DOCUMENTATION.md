@@ -20,6 +20,5 @@
 
 # package org.start_program
 <ol>
-<li> checking_neccessary_files -> ???
 <li> Main -> start program
 </ol>
