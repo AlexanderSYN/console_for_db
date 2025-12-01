@@ -10,6 +10,7 @@ public class sql_console  {
 
     private static Scanner in = new Scanner(System.in);
     private static boolean isRun = false;
+    protected static int rows_affected = 0;
 
     public static void sql_mode(boolean isRun) {
         while (isRun) {
@@ -53,12 +54,12 @@ public class sql_console  {
                     System.out.printf("запрос занял: %d мс\n", TimeUnit.NANOSECONDS.toMillis(duration));
                 }
                 //=====================
-                // commands via insert
+                // commands via INSERT
                 //=====================
                 else if (sql_query.toLowerCase().substring(0, 6).equals("insert")) {
                     long start_time = System.nanoTime();
 
-                    int rows_affected = statement.executeUpdate(sql_query);
+                    rows_affected = statement.executeUpdate(sql_query);
 
                     // get duration
                     long end_time = System.nanoTime();
@@ -67,6 +68,43 @@ public class sql_console  {
                     System.out.println("Добавлено строк: " + rows_affected);
 
                     System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                }
+
+
+                //=====================
+                // commands via DELETE
+                //=====================
+                else if (sql_query.toLowerCase().substring(0, 6).equals("delete")) {
+                    long start_time = System.nanoTime();
+
+                    rows_affected = statement.executeUpdate(sql_query);
+
+                    // get duration
+                    long end_time = System.nanoTime();
+                    long duration = end_time - start_time;
+
+                    System.out.println("Удален строк: " + rows_affected);
+
+                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+
+                }
+
+                //=====================
+                // commands via UPDATE
+                //=====================
+                else if (sql_query.toLowerCase().substring(0, 6).equals("update")) {
+                    long start_time = System.nanoTime();
+
+                    rows_affected = statement.executeUpdate(sql_query);
+
+                    // get duration
+                    long end_time = System.nanoTime();
+                    long duration = end_time - start_time;
+
+                    System.out.println("обновлено строк: " + rows_affected);
+
+                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+
                 }
 
             } catch (Exception e){
