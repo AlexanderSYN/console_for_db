@@ -10,7 +10,4 @@ import static DB.util.*;
 public class helper_console {
 
 
-
-
-
 }
