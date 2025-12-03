@@ -46,48 +46,12 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    // for correctly output data in database
-                    ArrayList<Integer> count_minus = new ArrayList<Integer>();
-                    int tmp_j = 0;
-
                     while (result_set.next()) {
-                        System.out.print("+");
                         for (int i = 1; i <= columnCount; i++) {
-                            for (int j = 0; j <= result_set.getString(i).length()-1; j++) {
-                                tmp_j = j;
-                                System.out.print("-");
-                            }
-                            count_minus.add(tmp_j);
-
-                            System.out.print("+");
+                            System.out.println(meta_data.getColumnName(i) + " - " + result_set.getString(i) + "\t");
                         }
-                        System.out.println();
-
-
-                        // output column name
-                        System.out.print("|");
-
-                        for (int i = 1; i <= columnCount; i++) {
-                            System.out.print(meta_data.getColumnName(i));
-                            for (int j = 0; j <= count_minus.get(j); j++) {
-                                System.out.print(" ");
-                            }
-                            System.out.print("|");
-                        }
-                        System.out.println();
-
-                        // output value
-                        System.out.print("|");
-                        for (int i = 1; i <= columnCount; i++) {
-                            System.out.print(result_set.getString(i));
-                            System.out.print("|");
-                        }
-                        System.out.println();
-
                         System.out.println("\n");
                     }
-
-
                     System.out.printf("запрос занял: %d мс\n", TimeUnit.NANOSECONDS.toMillis(duration));
                 }
 
