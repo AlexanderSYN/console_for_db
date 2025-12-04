@@ -1,5 +1,7 @@
 # I use JDBC driver
 
+[TIP] when you have already written the correct data, the next time you start the program, you will be asked: "whether to load the data" , if so, you will quickly log into mysql, otherwise you will write new data (if incorrectly entered data, database.properties will not be updated)
+
 # package console
 <ol>
 <li> main_code_console -> main class for work with console
