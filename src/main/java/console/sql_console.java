@@ -108,6 +108,37 @@ public class sql_console  {
                     System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
+                //=====================
+                // commands via CREATE
+                //=====================
+                else if (sql_query.toLowerCase().substring(0, 6).equals("create")) {
+                    long start_time = System.nanoTime();
+
+                    rows_affected = statement.executeUpdate(sql_query);
+
+                    // get duration
+                    long end_time = System.nanoTime();
+                    long duration = end_time - start_time;
+
+                    System.out.println("Таблица успешно создана!");
+                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+
+                }
+
+                else {
+                    long start_time = System.nanoTime();
+
+                    rows_affected = statement.executeUpdate(sql_query);
+
+                    // get duration
+                    long end_time = System.nanoTime();
+                    long duration = end_time - start_time;
+
+                    System.out.println("обновлено строк: " + rows_affected);
+
+                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+
+                }
 
             } catch (Exception e){
                 System.err.println("ERROR: " + e);
