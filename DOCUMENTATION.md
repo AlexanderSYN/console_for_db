@@ -12,7 +12,7 @@
 <ol>
 <li> core_console -> main part for work with console
 <li> sql_console -> this class executes sql queries
-<li> helper_console -> ???
+<li> helper_console -> helper for work with sql_console
 </ol>
 
 # package DB

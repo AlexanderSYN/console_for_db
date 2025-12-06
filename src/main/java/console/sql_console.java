@@ -1,9 +1,10 @@
 package console;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import static DB.util.get_connection;
 
@@ -124,6 +125,34 @@ public class sql_console  {
                     System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
+                else if (sql_query.toLowerCase().equals("!one line") || sql_query.toLowerCase().equals("!more")) {
+                    System.out.println("max 100 queries");
+                    boolean tmp_run_for_more_line_sql = true;
+                    String input_queries = "";
+                    int line_sql_query = 0;
+                    String[] sql_queries = new String[100];
+
+                    while (tmp_run_for_more_line_sql) {
+                        if (line_sql_query == 100) {
+                            System.out.println("The limit has been exceeded, and all requests are currently being processed!");
+                            break;
+                        }
+
+                        input_queries = in.nextLine();
+
+                        if (input_queries.toLowerCase().equals("done") || input_queries.equals("~")) {
+                            tmp_run_for_more_line_sql = false;
+                            break;
+                        } else {
+                            line_sql_query++;
+                            sql_queries[line_sql_query] = input_queries;
+                        }
+                    }
+
+                    // executing sql queries
+                    helper_console.exec_sql_queries(sql_queries, line_sql_query);
+
+                }
 
                 else {
                     long start_time = System.nanoTime();
@@ -134,7 +163,7 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("обновлено строк: " + rows_affected);
+                    System.out.println("Запрос успешно завершился: " + rows_affected);
 
                     System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
