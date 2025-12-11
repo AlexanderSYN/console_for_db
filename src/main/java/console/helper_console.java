@@ -151,20 +151,41 @@ public class helper_console {
     }
 
     /**
+     * the method of getting the name command from mkcommand
      *
-     * @param text to search for the command name (for the mkcommand command)
-     *
-     * @return searches for the name of the command and returns it as a String
+     * @param text - here is the text of the user with the mkcommand command
+     * @return command name
      */
-    public static String get_name_command_from_input(String text) {
-        StringBuilder tmp_name_command = new StringBuilder(" ");
+    public static String get_name_command(String text) {
+        int count_space = 0;
+        StringBuilder tmp_name_command = new StringBuilder();
 
-        for (char c : text.toCharArray()) {
-            if (Character.isWhitespace(c)) return tmp_name_command.toString();
-            else if (c == ' ') return tmp_name_command.toString();
-            else tmp_name_command.append(c);
+        for (int i = 0; i <= text.length(); i++) {
+            if (count_space == 1) tmp_name_command.append(text.charAt(i));
+            if (count_space == 2) return tmp_name_command.toString();
+            if (text.charAt(i) == ' ') count_space++;
+
         }
-        return "none";
+
+        return tmp_name_command.toString();
+    }
+
+    /**
+     * the method of getting the command from mkcommand
+     *
+     * @param text - here is the text of the user with the mkcommand command
+     * @return command
+     */
+    public static String get_command(String text) {
+        int count_space = 0;
+        StringBuilder tmp_command = new StringBuilder();
+
+        for (int i = 0; i <= text.length(); i++) {
+            if (count_space == 2) return text.substring(i);
+            if (text.charAt(i) == ' ') count_space++;
+        }
+
+        return tmp_command.toString();
     }
 
 

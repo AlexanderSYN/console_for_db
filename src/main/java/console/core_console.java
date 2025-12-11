@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import static console.sql_console.*;
 import static DB.util.*;
+import static JSON.json.*;
 
 public class core_console {
 
@@ -52,7 +53,10 @@ public class core_console {
                         }
 
                         String name_command = input_from_console.substring(10);
-                        System.out.println(name_command);
+                        System.out.println(helper_console.get_name_command(input_from_console));
+                        System.out.println(helper_console.get_command(input_from_console));
+                        write_to_json(helper_console.get_name_command(input_from_console), helper_console.get_command(input_from_console));
+
                     }
                     else if (input_from_console.equals("mkcommand")) {
                         System.out.println("Please write like this -> mkcommand name_command command");
