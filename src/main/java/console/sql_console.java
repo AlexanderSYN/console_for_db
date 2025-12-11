@@ -3,8 +3,6 @@ package console;
 import java.sql.*;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 import static DB.util.get_connection;
 
