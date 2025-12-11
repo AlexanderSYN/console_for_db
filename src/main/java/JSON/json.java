@@ -6,12 +6,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 public class json {
-    private static final String CONFIG_PATH = "src/main/java/resources/config/commands.json";
+    private static final String CONFIG_PATH = "src/main/resources/config/commands.json";
     private static final ObjectMapper objectMapper = new ObjectMapper()
             .enable(SerializationFeature.INDENT_OUTPUT); // для красивого форматирования
 
