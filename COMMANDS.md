@@ -16,6 +16,11 @@ the command to clean the console
 delete data for a quick login to your database
 ``` clear data ```
 
+>[!TIP]
+>commands to storing in json file
+create your command
+```mkcommand (name command) (command)```
+
 just exit
 ``` exit ```
 ``` ex ```
