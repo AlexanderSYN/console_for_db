@@ -8,7 +8,7 @@ import static DB.util.*;
 public class helper_console {
 
     /**
-     * for executing sql queries (for !one line)
+     * for executing sql queries (for !one line and !morel)
      *
      * @param sql_queries   the array where all sql queries are stored
      * @param count_request number of requests
@@ -51,7 +51,7 @@ public class helper_console {
                         }
                         System.out.println("\n");
                     }
-                    System.out.printf("запрос занял: %d мс\n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms\n", TimeUnit.NANOSECONDS.toMillis(duration));
                 }
 
                 //=====================
@@ -66,9 +66,9 @@ public class helper_console {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Добавлено строк: " + rows_affected);
+                    System.out.println("Lines added: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
                 }
 
 
@@ -84,9 +84,9 @@ public class helper_console {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Удален строк: " + rows_affected);
+                    System.out.println("Rows deleted: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
 
@@ -102,9 +102,9 @@ public class helper_console {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("обновлено строк: " + rows_affected);
+                    System.out.println("Updated lines: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("the request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
                 //=====================
@@ -119,8 +119,8 @@ public class helper_console {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Таблица успешно создана!");
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.println("The table has been created successfully!");
+                    System.out.printf("the request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 } else {
                     long start_time = System.nanoTime();
@@ -131,9 +131,9 @@ public class helper_console {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Запрос успешно завершился: " + rows_affected);
+                    System.out.println("The request was completed successfully: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("the request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
 
@@ -180,7 +180,7 @@ public class helper_console {
                     }
                     System.out.println("\n");
                 }
-                System.out.printf("запрос занял: %d мс\n", TimeUnit.NANOSECONDS.toMillis(duration));
+                System.out.printf("The request took: %d ms\n", TimeUnit.NANOSECONDS.toMillis(duration));
             }
 
             //=====================
@@ -195,9 +195,9 @@ public class helper_console {
                 long end_time = System.nanoTime();
                 long duration = end_time - start_time;
 
-                System.out.println("Добавлено строк: " + rows_affected);
+                System.out.println("Lines added: " + rows_affected);
 
-                System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
             }
 
 
@@ -213,9 +213,9 @@ public class helper_console {
                 long end_time = System.nanoTime();
                 long duration = end_time - start_time;
 
-                System.out.println("Удален строк: " + rows_affected);
+                System.out.println("Rows deleted: " + rows_affected);
 
-                System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
             }
 
@@ -231,9 +231,9 @@ public class helper_console {
                 long end_time = System.nanoTime();
                 long duration = end_time - start_time;
 
-                System.out.println("обновлено строк: " + rows_affected);
+                System.out.println("Updated lines: " + rows_affected);
 
-                System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
             }
             //=====================
@@ -248,8 +248,8 @@ public class helper_console {
                 long end_time = System.nanoTime();
                 long duration = end_time - start_time;
 
-                System.out.println("Таблица успешно создана!");
-                System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                System.out.println("The table has been created successfully!");
+                System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
             } else {
                 long start_time = System.nanoTime();
@@ -260,65 +260,83 @@ public class helper_console {
                 long end_time = System.nanoTime();
                 long duration = end_time - start_time;
 
-                System.out.println("Запрос успешно завершился: " + rows_affected);
+                System.out.println("The request was completed successfully: " + rows_affected);
 
-                System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
             }
 
             System.out.println();
 
-    } catch(Exception e) {
-        System.err.println("[ERROR]: " + e);
-    }
-}
-
-/**
- * the method of getting the name command from mkcommand
- *
- * @param text - here is the text of the user with the mkcommand command
- * @return command name
- */
-public static String get_name_command(String text) {
-    int count_space = 0;
-    StringBuilder tmp_name_command = new StringBuilder();
-
-    for (int i = 0; i <= text.length(); i++) {
-        if (count_space == 1) tmp_name_command.append(text.charAt(i));
-        if (count_space == 2) return tmp_name_command.toString();
-        if (text.charAt(i) == ' ') count_space++;
-
+        } catch (Exception e) {
+            System.err.println("[ERROR]: " + e);
+        }
     }
 
-    return tmp_name_command.toString();
-}
+    /**
+     * the method of getting the name command from mkcommand
+     *
+     * @param text - here is the text of the user with the mkcommand command
+     * @return command name
+     */
+    public static String get_name_command(String text) {
+        int count_space = 0;
+        StringBuilder tmp_name_command = new StringBuilder();
 
-/**
- * the method of getting the command from mkcommand
- *
- * @param text - here is the text of the user with the mkcommand command
- * @return command
- */
-public static String get_command(String text) {
-    int count_space = 0;
-    StringBuilder tmp_command = new StringBuilder();
+        for (int i = 0; i <= text.length(); i++) {
+            if (count_space == 1) tmp_name_command.append(text.charAt(i));
+            if (count_space == 2) return tmp_name_command.toString();
+            if (text.charAt(i) == ' ') count_space++;
 
-    for (int i = 0; i <= text.length(); i++) {
-        if (count_space == 2) return text.substring(i);
-        if (text.charAt(i) == ' ') count_space++;
+        }
+
+        return tmp_name_command.toString();
     }
 
-    return tmp_command.toString();
-}
+    /**
+     * the method of getting the command from mkcommand
+     *
+     * @param text - here is the text of the user with the mkcommand command
+     * @return command
+     */
+    public static String get_command(String text) {
+        int count_space = 0;
+        StringBuilder tmp_command = new StringBuilder();
 
-/**
- * method run to command from json
- *
- * @param name_command - name command from json
- */
-public static void run_command(String name_command) {
-    exec_sql_query(JSON.json.get_command_from_json(name_command));
-}
+        for (int i = 0; i <= text.length(); i++) {
+            if (count_space == 2) return text.substring(i);
+            if (text.charAt(i) == ' ') count_space++;
+        }
 
+        return tmp_command.toString();
+    }
 
+    /**
+     * method run to command from json
+     *
+     * @param name_command - name command from json
+     */
+    public static void run_command(String name_command) {
+        exec_sql_query(JSON.json.get_command_from_json(name_command));
+    }
+
+    /**
+     *
+     * clears the console (cross-platform)
+     *
+     */
+    public static void clear_console() {
+        try {
+            // Windows
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                // Linux / MacOS
+                System.out.println("\003[H\003[2J");
+                System.out.flush();
+            }
+        } catch (Exception e) {
+            System.err.println("[ERROR_CLEAR_CONSOLE]: " + e);
+        }
+    }
 }

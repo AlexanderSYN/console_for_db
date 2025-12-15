@@ -51,7 +51,7 @@ public class sql_console  {
                         }
                         System.out.println("\n");
                     }
-                    System.out.printf("запрос занял: %d мс\n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms\n", TimeUnit.NANOSECONDS.toMillis(duration));
                 }
 
                 //=====================
@@ -66,9 +66,9 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Добавлено строк: " + rows_affected);
+                    System.out.println("Lines added: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
                 }
 
 
@@ -84,9 +84,9 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Удален строк: " + rows_affected);
+                    System.out.println("Rows deleted: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
 
@@ -102,9 +102,9 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("обновлено строк: " + rows_affected);
+                    System.out.println("Updated lines: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
                 //=====================
@@ -119,8 +119,8 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Таблица успешно создана!");
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.println("The table has been created successfully!");
+                    System.out.printf("The request took: %d ms \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
                 else if (sql_query.toLowerCase().equals("!one line") | sql_query.toLowerCase().equals("!morel")) {
@@ -144,7 +144,7 @@ public class sql_console  {
                             num_line++;
 
                             if (input_queries.toLowerCase().equals("done") || input_queries.equals("~")
-                                || input_queries.toLowerCase().equals("ex") || input_queries.toLowerCase().equals("exit")) {
+                                    || input_queries.toLowerCase().equals("ex") || input_queries.toLowerCase().equals("exit")) {
                                 tmp_run_for_more_line_sql = false;
                                 break;
                             } else {
@@ -174,9 +174,9 @@ public class sql_console  {
                     long end_time = System.nanoTime();
                     long duration = end_time - start_time;
 
-                    System.out.println("Запрос успешно завершился: " + rows_affected);
+                    System.out.println("The request was completed successfully: " + rows_affected);
 
-                    System.out.printf("запрос занял: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
+                    System.out.printf("The request took: %d мс \n", TimeUnit.NANOSECONDS.toMillis(duration));
 
                 }
 
