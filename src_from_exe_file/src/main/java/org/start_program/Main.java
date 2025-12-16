@@ -16,7 +16,7 @@ public class Main {
 
         while (isRun) {
             try {
-                System.out.println("_Welcome to the console for bd program_");
+                System.out.println("_Welcome to the console for db program_");
 
                 if (is_data_has_for_bd()) {
                     start_program();

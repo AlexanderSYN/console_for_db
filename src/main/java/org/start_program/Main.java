@@ -12,7 +12,7 @@ public class Main {
     private static boolean isRun = true;
 
     public static void start_program() throws IOException {
-        System.out.println("please connect to your bd");
+        System.out.println("please connect to your db");
         System.out.println("example url -> jdbc:mysql://localhost:3306/dbname");
         System.out.print("url: ");
         String tmp_url = in.nextLine();
