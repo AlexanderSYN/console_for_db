@@ -79,4 +79,13 @@ public class util extends helper_for_util{
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
+    /**
+     * find out data about the database
+     */
+    public static void get_data_about_db() {
+        System.out.println("url: " + URL);
+        System.out.println("user: " + USER);
+        System.out.println("password: " + PASSWORD);
+    }
+
 }
