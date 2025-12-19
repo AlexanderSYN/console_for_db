@@ -1,5 +1,6 @@
 package console;
 
+import DB.util;
 import com.fasterxml.jackson.core.JsonToken;
 
 import java.util.Scanner;
@@ -18,7 +19,7 @@ public class core_console {
     public static void start_console() {
         try {
             while (isRun) {
-                System.out.println("\033[H\033[2J"); // cleared console
+                helper_console.clear_console();
                 System.out.println("for help type help");
                 System.out.print("# ");
                 input_from_console = in.nextLine().toLowerCase();
@@ -26,6 +27,8 @@ public class core_console {
                 try {
                     if (input_from_console.equals("help")) {
                         System.out.println("help -> for help");
+                        System.out.println("info -> info about console");
+                        System.out.println("db -> find out data about the database");
                         System.out.println("sql -> for sql mode");
                         System.out.println("mkcommand (name command) (command) -> for create your commands (for writing sql queries quickly)");
                         System.out.println("rmc (name command) -> to remove a command from quick access (json) ");
@@ -36,8 +39,19 @@ public class core_console {
                         System.out.println("ex / exit -> for exit from console");
                     }
 
+                    else if (input_from_console.equals("info")) {
+                        System.out.println("Console for DataBase");
+                        System.out.println("VERSION: 1.0 (Beta Test)");
+                        System.out.println("___SYNEATION____");
+                        System.out.println("programmer: Alexander Katin");
+                    }
+
+                    else if (input_from_console.equals("db")) {
+                        util.get_data_about_db();
+                    }
+
                     else if (input_from_console.equals("cls") || input_from_console.equals("clear")) {
-                        System.out.println("\033[H\033[2J");
+                        helper_console.clear_console();
                     }
                     else if (input_from_console.equals("clear data")) {
                         clear_all_data_from_db_prop();
