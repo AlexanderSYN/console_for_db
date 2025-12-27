@@ -5,10 +5,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class util extends helper_for_util{
-    private static String URL = get_url();
-    private static String USER = get_user();
-    private static String PASSWORD = get_password();
+public class util extends helper_for_util {
+    protected static String URL = get_url();
+    protected static String USER = get_user();
+    protected static String PASSWORD = get_password();
 
     private static String old_url = "";
     private static String old_user = "";
@@ -80,7 +80,7 @@ public class util extends helper_for_util{
      * @return if has a data without null in properties then true otherwise false
      */
     public static boolean is_data_has_for_bd() {
-        return URL.isEmpty() && USER.isEmpty();
+        return get_url().isEmpty() & get_user().isEmpty();
     }
 
     public static Connection get_connection() throws SQLException {

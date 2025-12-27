@@ -1,27 +1,28 @@
 package org.start_program;
 
+import DB.util;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Scanner;
 
-import static DB.util.*;
 import static console.core_console.*;
 
-public class Main {
+public class Main extends util {
     public static Scanner in = new Scanner(System.in);
     private static boolean isRun = true;
 
     public static void start_program() throws IOException {
-        System.out.println("please connect to your db");
-        System.out.println("example url -> jdbc:mysql://<IP_ADDRESS_SERVER_OR_DOMEN>:<PORT>/<dbname>");
-        System.out.println("you can write help!");
-        System.out.print("url: ");
+        System.out.print("please connect to your db\n"+
+                            "example url -> jdbc:mysql://<IP_ADDRESS_SERVER_OR_DOMEN>:<PORT>/<dbname>\n"+
+                            "you can write help!\n"+
+                            "url: ");
         String tmp_url = in.nextLine();
         if (tmp_url.equalsIgnoreCase("help")) {
-            System.out.println("to connect on localhost server you can to write so: jdbc:mysql://localhsot:3306/db_name");
-            System.out.println("to connect on your server mysql you need to write so: jdbc:mysql://your_ip_address_server_or_your_domen:your_port/db_name");
-            System.out.println("if it returns an error when connecting to the database via the host, then most likely you need to give access to your ip address.");
-            System.out.print("url: ");
+            System.out.print("to connect on localhost server you can to write so: jdbc:mysql://localhost:3306/db_name\n"+
+                            "to connect on your server mysql you need to write so: jdbc:mysql://your_ip_address_server_or_your_domen:your_port/db_name\n"+
+                            "if it returns an error when connecting to the database via the host, then most likely you need to give access to your ip address\n"+
+                            "url: ");
             tmp_url = in.nextLine();
         }
 
@@ -43,7 +44,7 @@ public class Main {
             isRun = false;
             return;
         }
-
+        System.out.println("[INFO] Connect to database...");
         set_data_for_bd(tmp_url, tmp_user, tmp_password);
 
         try {
@@ -71,11 +72,14 @@ public class Main {
 
         while (isRun) {
             try {
-                System.out.println("_Welcome to the console for db program_");
+                System.out.println("_Welcome to the console database_");
 
                 if (is_data_has_for_bd()) {
                     start_program();
                 } else {
+                    System.out.println("[old_data] url: " +  util.URL);
+                    System.out.println("[old_data] user: " + util.USER);
+                    System.out.println("[old_data] password: " + util.PASSWORD);
                     System.out.print("[INFO] Do you want to use old data? (y/n): ");
                     String is_use_old_data = in.nextLine();
 
@@ -98,6 +102,8 @@ public class Main {
                 }
             } catch (Exception e) {
                 System.err.println("[ERROR] " + e);
+                System.out.println("please click <any button> to continue");
+                in.nextLine();
             }
         }
     }

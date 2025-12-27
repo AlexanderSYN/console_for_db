@@ -1,10 +1,7 @@
 package DB;
 
+import java.io.*;
 import java.util.Properties;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.FileOutputStream;
 
 public class helper_for_util {
     private static final Properties PROOPS = new Properties();
@@ -21,9 +18,7 @@ public class helper_for_util {
     private static void load_properties() {
         if (propertiesLoaded) return;
 
-        try (InputStream in = helper_for_util.class
-                .getClassLoader()
-                .getResourceAsStream(CONFIG_PATH)) {
+        try (InputStream in = new FileInputStream(CONFIG_PATH)) {
 
             if (in == null) {
                 throw new RuntimeException("[WARNING] Sorry, unable to find database.properties: " + CONFIG_PATH);

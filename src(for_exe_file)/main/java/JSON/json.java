@@ -52,7 +52,7 @@ public class json {
 
                 data = objectMapper.readValue(configFile,
                         new TypeReference<Map<String, String>>() {
-                });
+                        });
 
 
             } else data = new HashMap<>();
